@@ -12,14 +12,16 @@ import { DatenService } from '../datenservice.service';
 })
 export class SuchleisteComponent {
 
-  readonly apiurl ="http://127.0.0.1:8000";
+  readonly apiurl ="localhost:8000";
   eingabeWert:string ='';
-  eingabeSpeicher: string = ''
+  eingabeSpeicher: string = '';
+  eingabeListe:any;
   constructor(private http: HttpClient, private router: Router, private datenService: DatenService){}
 
- 
-  getSuchList():Observable<any[]> {
-    return this.http.get<any[]>(this.apiurl + '/suchleiste/');
+
+  getSuchList() {
+    // return this.http.get(this.apiurl + '/eingabe/?id=10320');
+    return this.http.get("http://localhost:8000/eingabe/?id=10320");
   }
   addSuchList(val: any) {
     return this.http.post(this.apiurl + '/suchleiste/' , val);
@@ -42,7 +44,11 @@ export class SuchleisteComponent {
   pruefeEingabe() {
     this.datenService.updateEingabeSpeicher(this.eingabeWert);
     this.eingabeSpeicher = this.eingabeWert;
-    this.router.navigate(['/anzeige']);
+    // this.router.navigate(['/anzeige']);
+    this.eingabeListe = this.getSuchList().subscribe(data => {console.log(data)
+        }
+
+    );
   }
 
 }

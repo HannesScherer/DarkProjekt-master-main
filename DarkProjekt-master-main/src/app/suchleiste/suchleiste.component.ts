@@ -15,7 +15,7 @@ export class SuchleisteComponent {
   readonly apiurl ="localhost:8000";
   eingabeWert:string ='';
   eingabeSpeicher: string = '';
-  eingabeListe:any;
+  eingabeListe:string[] = [];
   constructor(private http: HttpClient, private router: Router, private datenService: DatenService){}
 
 
@@ -45,10 +45,10 @@ export class SuchleisteComponent {
     this.datenService.updateEingabeSpeicher(this.eingabeWert);
     this.eingabeSpeicher = this.eingabeWert;
     // this.router.navigate(['/anzeige']);
-    this.eingabeListe = this.getSuchList().subscribe(data => {console.log(data)
-        }
-
+    this.getSuchList().subscribe(data =>
+        {localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)}
     );
+
   }
 
 }

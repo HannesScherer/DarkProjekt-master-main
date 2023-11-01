@@ -13,7 +13,7 @@ export class AnzeigeComponent implements OnInit {
   suchanfrage: string ='';
   suchergebnis:any;
   url: string = '/assets/suchergebniss.json';
-  
+
 
   eingabe: string = '';
   constructor(private datenService: DatenService) {
@@ -23,19 +23,20 @@ export class AnzeigeComponent implements OnInit {
     });
 
   }
-  
+
   getSuchanfrage(): string {
 
     console.log(this.suchanfrage);
     return this.suchanfrage;
-    
-  } 
-  
-  ngOnInit(): void {
-    
-    
+
   }
 
-  
+  ngOnInit(): void {
 
+
+  }
+
+
+  protected readonly localStorage = localStorage;
+  protected readonly JSON = JSON;
 }

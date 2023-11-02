@@ -14,6 +14,7 @@ import { DesignPaketComponent } from './design-paket/design-paket.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AnzeigeDatenComponent } from './anzeigedaten/anzeigedaten.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Impressum2Component } from './impressum2/impressum2.component';
 
 
 
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotFoundComponent,
     DesignPaketComponent,
     AnzeigeDatenComponent,
+    Impressum2Component,
     
     
   ],

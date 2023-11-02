@@ -4,12 +4,15 @@ import { SuchleisteComponent } from './suchleiste/suchleiste.component';
 import { AnzeigeComponent } from './anzeige/anzeige.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppComponent } from './app.component';
-const routes: Routes = [
+import { ImpressumComponent } from './impressum/impressum.component';
+import { NavComponent } from './nav/nav.component';
+export const routes: Routes = [
 
-  { path: '', component: AppComponent, pathMatch: 'full' },
-  {path: 'eingabe', component: SuchleisteComponent},
-  {path: 'anzeige', component: AnzeigeComponent},
-  { path: '**', component: NotFoundComponent },
+  {path: '', redirectTo: 'eingabe', pathMatch: 'full'},
+  {path: 'impressum', title:'Lego-GCT Impressum', component: ImpressumComponent},
+  {path: 'ergebnis/:eingabe', title:'Lego-GCT Suchergebniss',component: AnzeigeComponent},
+  {path: 'eingabe', title:'Lego-GCT Home',component: SuchleisteComponent},
+  {path: '**', component: NotFoundComponent}
 
 ];
 

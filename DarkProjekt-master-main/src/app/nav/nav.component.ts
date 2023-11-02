@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+  constructor(private impressumRouter:Router){}
+
   lightNav = './assets/BurgernavV4.svg';
   menuOpen = false;
   lightLogo = './assets/LogoAntrazit.svg';;
@@ -51,4 +54,14 @@ export class NavComponent {
         this.discordLight = './assets/discord-mark-white.svg';
     }
   }
+
+  ngOnInit() {}
+  changeToImpressum(evt: MouseEvent, name: string) {
+    evt.preventDefault();
+    let navcfg = [{ outlets: { secondary: name } }];
+    this.impressumRouter.navigate(navcfg, {
+      skipLocationChange: false,
+    });
+  }
+
 }

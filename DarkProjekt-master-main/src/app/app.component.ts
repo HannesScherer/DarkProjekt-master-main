@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FooterComponent } from './footer/footer.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { HttpClient } from '@angular/common/http';
 

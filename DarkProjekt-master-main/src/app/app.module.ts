@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
-import { ImpressumComponent } from './impressum/impressum.component';
+import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { AnzeigeComponent } from './anzeige/anzeige.component';
 import { SuchleisteComponent } from './suchleiste/suchleiste.component';
@@ -14,7 +14,9 @@ import { DesignPaketComponent } from './design-paket/design-paket.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AnzeigeDatenComponent } from './anzeigedaten/anzeigedaten.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Impressum2Component } from './impressum2/impressum2.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { RouterModule} from '@angular/router';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
 
@@ -24,25 +26,28 @@ import { Impressum2Component } from './impressum2/impressum2.component';
     AboutComponent,
     LoginComponent,
     CreateAccountComponent,
-    ImpressumComponent,
+    FooterComponent,
     NavComponent,
     AnzeigeComponent,
     SuchleisteComponent,
     NotFoundComponent,
     DesignPaketComponent,
     AnzeigeDatenComponent,
-    Impressum2Component,
+    ImpressumComponent,
     
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

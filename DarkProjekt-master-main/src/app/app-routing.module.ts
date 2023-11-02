@@ -8,11 +8,11 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { NavComponent } from './nav/nav.component';
 export const routes: Routes = [
 
-  { path: '', component: AppComponent, pathMatch: 'full' },
+  {path: '', redirectTo: 'eingabe', pathMatch: 'full'},
   {path: 'impressum', title:'Lego-GCT Impressum', component: ImpressumComponent},
-  {path: 'eingabe', title:'Lego-GCT Home', component: SuchleisteComponent},
-  {path: 'anzeige', title:'Lego-GCT Suchergebniss', component: AnzeigeComponent},
-  { path: '**', component: NotFoundComponent },
+  {path: 'ergebnis/:eingabe', title:'Lego-GCT Suchergebniss',component: AnzeigeComponent},
+  {path: 'eingabe', title:'Lego-GCT Home',component: SuchleisteComponent},
+  {path: '**', component: NotFoundComponent}
 
 ];
 

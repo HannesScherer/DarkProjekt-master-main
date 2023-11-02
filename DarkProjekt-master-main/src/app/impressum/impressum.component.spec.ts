@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImpressumComponent } from './impressum.component';
 
-describe('Impressum2Component', () => {
+describe('ImpressumComponent', () => {
   let component: ImpressumComponent;
   let fixture: ComponentFixture<ImpressumComponent>;
 

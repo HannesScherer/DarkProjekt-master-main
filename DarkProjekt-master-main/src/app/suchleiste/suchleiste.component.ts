@@ -10,14 +10,19 @@ import { DatenService } from '../datenservice.service';
   templateUrl: './suchleiste.component.html',
   styleUrls: ['./suchleiste.component.scss']
 })
+
 export class SuchleisteComponent {
 
+  legoSetMap = new Map<number, string>();
   readonly apiurl ="localhost:8000";
   eingabeWert:string ='';
   eingabeSpeicher: string = '';
   eingabeListe:string[] = [];
+  
+
   constructor(private http: HttpClient, private router: Router, private datenService: DatenService){}
 
+  
 
   getSuchList() {
     // return this.http.get(this.apiurl + '/eingabe/?id=10320');
@@ -45,10 +50,32 @@ export class SuchleisteComponent {
     this.datenService.updateEingabeSpeicher(this.eingabeWert);
     this.eingabeSpeicher = this.eingabeWert;
     // this.router.navigate(['/anzeige']);
-    this.getSuchList().subscribe(data =>
-        {localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)}
+    this.getSuchList().subscribe(data =>{
+
+      this.legoSetMap.set(JSON.parse(JSON.stringify(data)[0]),JSON.parse(JSON.stringify(data)));
+      localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)}
+      
     );
 
+  }
+  löscheEingabe() {
+    this.legoSetMap.clear();
+  }
+
+  jsonVerarbeiter(data: any): void {
+    const sets = new Set(data);
+
+  // Erstelle eine Map für die Teile
+  const partsMap = new Map<string, any[]>();
+
+  data.forEach((item: any) => {
+    if (item.parts) {
+      // Wenn das JSON-Objekt Teile enthält, füge sie zur Teile-Map hinzu
+      partsMap.set(item.set_id, item.parts);
+    }
+  });
+  console.log(sets);
+  console.log(partsMap);
   }
 
 }

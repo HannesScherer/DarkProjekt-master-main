@@ -34,8 +34,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     DesignPaketComponent,
     AnzeigeDatenComponent,
     ImpressumComponent,
-    
-    
+
+
   ],
   imports: [
     BrowserModule,

@@ -18,17 +18,17 @@ export class SuchleisteComponent {
   readonly apiurl ="localhost:8000";
   eingabeWert:string ='';
   lego_set:LegoSet = new LegoSet("null","null",1,[]);
+  img:string = '';
   eingabeSpeicher: string = '';
-  eingabeListe:string[] = [];
-
+  ist_geclickt:boolean=false;
 
   constructor(private http: HttpClient, private router: Router, private datenService: DatenService){}
 
 
 
   getSuchList() {
-    // return this.http.get(this.apiurl + '/eingabe/?id=10320');
-    return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
+    // return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
+    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10320.json");
   }
   addSuchList(val: any) {
     return this.http.post(this.apiurl + '/suchleiste/' , val);
@@ -49,6 +49,7 @@ export class SuchleisteComponent {
   }
 
   pruefeEingabe() {
+    this.ist_geclickt = true;
     this.datenService.updateEingabeSpeicher(this.eingabeWert);
     this.eingabeSpeicher = this.eingabeWert;
     // this.router.navigate(['/anzeige']);
@@ -59,9 +60,7 @@ export class SuchleisteComponent {
 
       // data[1].
 
-
       // console.log(data);
-
       // const a:any = JSON.parse(JSON.stringify(data));
       // this.legoSetMap.set("set_id", a[0].set_id);
       // const b:any = [];
@@ -102,6 +101,9 @@ export class SuchleisteComponent {
       const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
       lego_einzelteile.push(einzelteil);
     })
+    this.img = data[4];
+
+
     const bricklink_shop:Shop = new Shop(data[3].shop_name, data[3].shop_url, lego_einzelteile);
     const shops:Shop[] = [];
     shops.push(lego_shop);
@@ -115,7 +117,7 @@ export class SuchleisteComponent {
 
 
   }
-  
+
 
 
   protected readonly JSON = JSON;

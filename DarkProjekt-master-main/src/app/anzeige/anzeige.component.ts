@@ -11,7 +11,7 @@ import { SuchleisteComponent } from '../suchleiste/suchleiste.component';
   templateUrl: './anzeige.component.html',
   styleUrls: ['./anzeige.component.scss']
 })
-export class AnzeigeComponent implements OnInit {
+export class AnzeigeComponent {
   suchanfrage: string ='';
   suchergebnis:any;
   url: string = '/assets/suchergebniss.json';
@@ -28,14 +28,11 @@ export class AnzeigeComponent implements OnInit {
 
   getSuchanfrage(){
 
-   this.suche.lego_set;
+    return this.suche.lego_set.set_name;
 
   }
 
-  ngOnInit(): void {
 
-
-  }
 
   /*
   protected readonly localStorage = localStorage;

@@ -18,6 +18,7 @@ export class SuchleisteComponent {
   readonly apiurl ="localhost:8000";
   eingabeWert:string ='';
   lego_set:LegoSet = new LegoSet("null","null",1,[]);
+  
   img:string = '';
   eingabeSpeicher: string = '';
   ist_geclickt:boolean=false;
@@ -28,7 +29,7 @@ export class SuchleisteComponent {
 
   getSuchList() {
     // return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
-    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10320.json");
+    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
   }
   addSuchList(val: any) {
     return this.http.post(this.apiurl + '/suchleiste/' , val);
@@ -56,19 +57,7 @@ export class SuchleisteComponent {
     this.getSuchList().subscribe(data =>{
      this.jsonVerarbeiter(data);
       console.log(data);
-      // const einzelteile:Einzelteil[] = [];
-
-      // data[1].
-
-      // console.log(data);
-      // const a:any = JSON.parse(JSON.stringify(data));
-      // this.legoSetMap.set("set_id", a[0].set_id);
-      // const b:any = [];
-      // b.add("123");
-      // this.legoSetMap.set("list", b);
-      //
-      // console.log(this.legoSetMap.get("set_id"));
-       localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)
+      localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)
       }
 
     );
@@ -85,8 +74,7 @@ export class SuchleisteComponent {
       lego_einzelteile.push(einzelteil);
     })
     const lego_shop:Shop = new Shop(data[1].shop_name, data[1].shop_url, lego_einzelteile);
-
-
+    
 
     const toypro_einzelteile:Einzelteil[] = [];
     data[2].parts.forEach((item:any) => {

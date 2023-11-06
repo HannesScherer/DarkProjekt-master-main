@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { RouterModule} from '@angular/router';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { EinzelteileAnzeigenComponent } from './einzelteile-anzeigen/einzelteile-anzeigen.component';
 
 
 
@@ -34,6 +35,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     DesignPaketComponent,
     AnzeigeDatenComponent,
     ImpressumComponent,
+    EinzelteileAnzeigenComponent,
 
 
   ],

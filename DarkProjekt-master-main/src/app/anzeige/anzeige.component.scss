@@ -29,22 +29,19 @@
     background-attachment: fixed;
     background-position: center;
 }
+.first{
+    z-index: 2;
+}
 .hcontainer {
     font-size: 16px;
     text-align: center;
-    padding: 12px 0;
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
-    margin-left: 30%;
-    margin-bottom: 3%;
-    display: table;
-    background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font);
-    border-color: var(--color-border);
-    border-bottom-color: var(--color-border);
-    background: var(--color-objekt);
-    border-radius: 5%;
+    background: rgb(230, 230, 255, 0.9);
+    border-radius: 1%;
+    padding: 2% 15%;
     
 }
 
@@ -58,7 +55,7 @@
     
 }
 .tablecol{
-    background-color: var(--color-bg);
+    background-color: rgb(230, 230, 255, 0.9);
     padding: 10% 15%;
     border-radius: 10px;
     color: var(--color-text);
@@ -75,7 +72,8 @@
     font-weight: 500;
 }
 .tablecol h3 span{
-    font-size: 16px;
+    font-size: 12px;
+    overflow-wrap: break-word;
 }
 .tablecol ul{
     text-align: left;

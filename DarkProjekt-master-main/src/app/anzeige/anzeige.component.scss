@@ -62,8 +62,13 @@
     padding: 10% 15%;
     border-radius: 10px;
     color: var(--color-text);
-    
 }
+.tablecol:hover {
+    -webkit-box-shadow:0px 0px 80px 20px rgba(178,144,240,0.9);
+    -moz-box-shadow: 0px 0px 80px 20px rgba(178,144,240,0.9);
+    box-shadow: 0px 0px 80px 20px rgba(178,144,240,0.9);
+}
+
 .tablecol h3{
     font-size: 40px;
     margin: 20px 0 40px;

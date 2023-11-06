@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DatenService } from '../datenservice.service';
+import { LegoSet } from '../suchleiste/datenstrukturen';
+import { SuchleisteComponent } from '../suchleiste/suchleiste.component';
 @Component({
   selector: 'app-anzeige',
   templateUrl: './anzeige.component.html',
@@ -16,7 +18,7 @@ export class AnzeigeComponent implements OnInit {
 
 
   eingabe: string = '';
-  constructor(private datenService: DatenService) {
+  constructor(private datenService: DatenService, private suche: SuchleisteComponent) {
 
     this.datenService.eingabeSpeicher$.subscribe((eingabe) => {
       this.suchanfrage = eingabe;
@@ -24,10 +26,9 @@ export class AnzeigeComponent implements OnInit {
 
   }
 
-  getSuchanfrage(): string {
+  getSuchanfrage(){
 
-    console.log(this.suchanfrage);
-    return this.suchanfrage;
+   this.suche.lego_set;
 
   }
 
@@ -36,7 +37,8 @@ export class AnzeigeComponent implements OnInit {
 
   }
 
-
+  /*
   protected readonly localStorage = localStorage;
   protected readonly JSON = JSON;
+  */
 }

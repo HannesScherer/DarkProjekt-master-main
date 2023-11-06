@@ -10,7 +10,7 @@ export const routes: Routes = [
 
   {path: '', redirectTo: 'eingabe', pathMatch: 'full'},
   {path: 'impressum', title:'Lego-GCT Impressum', component: ImpressumComponent},
-  {path: 'ergebnis/:eingabe', title:'Lego-GCT Suchergebniss',component: AnzeigeComponent},
+  {path: 'ergebnis/:eingabe', title:'Lego-GCT Suchergebnis',component: AnzeigeComponent},
   {path: 'eingabe', title:'Lego-GCT Home',component: SuchleisteComponent},
   {path: '**', component: NotFoundComponent}
 

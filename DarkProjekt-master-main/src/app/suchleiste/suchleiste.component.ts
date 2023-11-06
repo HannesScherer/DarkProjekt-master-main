@@ -53,7 +53,7 @@ export class SuchleisteComponent {
     this.eingabeSpeicher = this.eingabeWert;
     // this.router.navigate(['/anzeige']);
     this.getSuchList().subscribe(data =>{
-      this.jsonVerarbeiter(data);
+     this.jsonVerarbeiter(data);
       console.log(data);
       // const einzelteile:Einzelteil[] = [];
 
@@ -69,7 +69,7 @@ export class SuchleisteComponent {
       // this.legoSetMap.set("list", b);
       //
       // console.log(this.legoSetMap.get("set_id"));
-      // localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)
+       localStorage.setItem("set_id", JSON.parse(JSON.stringify(data))[1].parts[0].preis)
       }
 
     );
@@ -111,10 +111,11 @@ export class SuchleisteComponent {
     console.log(lego_set);
     localStorage.setItem("set", JSON.stringify(lego_set));
     this.lego_set = lego_set;
-
+    sessionStorage.setItem("set",this.JSON.stringify(lego_set))
 
 
   }
+  
 
 
   protected readonly JSON = JSON;

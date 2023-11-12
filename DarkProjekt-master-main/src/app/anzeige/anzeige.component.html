@@ -3,7 +3,8 @@
     
     <div class="hcontainer">
     <h1 class="first"> Suchergebnis: {{getName()}} - {{getId()}}</h1>
-    <img src="data:image/jpg;base64,{{getImg()}}">
+    <div class="slit-in-vertical"><img src="data:image/jpg;base64,{{getImg()}}"></div>
+    
     </div>
     </div>
     
@@ -13,12 +14,12 @@
 
         <div class="tablecol">
 
-            <h3> {{getShopName1()}} <span><a href="{{getShopUrl1()}}">zum Shop</a></span></h3>
+            <h3> {{getShopName1()}} <br><span><a href="{{getShopUrl1()}}">zum Shop</a></span></h3>
             <ul>
                 <li>{{getName()}}</li>
                 <li>{{getId()}}</li>
                 <li>Setpreis: {{getPreis()}}€</li>
-                <li>Einzelteilpreis: 126$</li>
+                <li>Einzelteilpreis: {{getEinzelteilpreis1()}}</li>
                 <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
             </ul>
             <button (click)="getEinzelteile()">Einzelteile anzeigen</button>

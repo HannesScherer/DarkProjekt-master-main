@@ -29,7 +29,7 @@ export class SuchleisteComponent {
 
   getSuchList() {
     // return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
-    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
+    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/70104.json");
   }
   addSuchList(val: any) {
     return this.http.post(this.apiurl + '/suchleiste/' , val);

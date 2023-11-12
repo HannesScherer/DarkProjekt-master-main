@@ -26,57 +26,113 @@ export class AnzeigeComponent {
 
   }
   getImg(){
-    return this.suche.img;
+
+    let ausgabe: String = "";
+    if(this.suche.img != ""){
+       ausgabe= this.suche.img;
+    }else {
+      ausgabe = "Kein Bild Vorhanden"
+    }
+    return ausgabe;
+    
   }
 
   getName(){
-    return this.suche.lego_set.set_name;
+    let ausgabe: String = "";
+    if(this.suche.lego_set.set_name != "") {
+      ausgabe= this.suche.lego_set.set_name;
+    }else {
+      ausgabe = "Kein Name vorhanden";
+    }
+    return ausgabe;
   }
   getId(){
-    return this.suche.lego_set.set_id;
+    let ausgabe: String = "";
+    if(this.suche.lego_set.set_id != "") {
+      ausgabe = this.suche.lego_set.set_id;
+    } else {
+      ausgabe = "Keine ID vorhanden"
+    }
+
+    return ausgabe;
   }
   getPreis(){
-    return this.suche.lego_set.preis;
+    let ausgabe: Number = 0.0;
+    if(this.suche.lego_set.preis != null){
+      ausgabe = this.suche.lego_set.preis 
+    } else {
+      ausgabe = 0.0;
+    }
+    return ausgabe;
   }
   getEinzelteilAnzahl() {
-    return this.suche.lego_set.einzelteil_anzahl;
+    let ausgabe: Number = 0;
+    if(this.suche.lego_set.einzelteil_anzahl != null){
+      ausgabe = this.suche.lego_set.einzelteil_anzahl;
+    } else {
+      ausgabe = 0;
+    }
+    return ausgabe;
   }
   getEinzelteile(): boolean{
     this.ist_geclickt = true;
     return this.ist_geclickt;
   }
   getShopName1(){
-    return this.suche.lego_set.shops[1].shop_name;
+    return this.suche.lego_set.shops[0].shop_name;
   }
   getShopUrl1(){
-    return this.suche.lego_set.shops[1].anbieter_url;
+    return this.suche.lego_set.shops[0].anbieter_url;
     
   }
   getVerfuegbareEinzelteile1(){
-    return this.suche.lego_set.shops[1].einzelteile;
+    return this.suche.lego_set.shops[0].einzelteile;
   }
   getShopName2(){
-    return this.suche.lego_set.shops[2].shop_name;
+    return this.suche.lego_set.shops[1].shop_name;
   }
   getShopUrl2(){
-    return this.suche.lego_set.shops[2].anbieter_url;
+    return this.suche.lego_set.shops[1].anbieter_url;
     
   }
   getVerfuegbareEinzelteile2(){
-    return this.suche.lego_set.shops[2].einzelteile;
+    return this.suche.lego_set.shops[1].einzelteile;
   }
   getShopName3(){
-    return this.suche.lego_set.shops[3].shop_name;
+    return this.suche.lego_set.shops[2].shop_name;
   }
   getShopUrl3(){
-    return this.suche.lego_set.shops[3].anbieter_url;
+    return this.suche.lego_set.shops[2].anbieter_url;
     
   }
   getVerfuegbareEinzelteile3(){
-    return this.suche.lego_set.shops[3].einzelteile;
+    return this.suche.lego_set.shops[2].einzelteile;
+  }
+  getEinzelteilpreis1(): number{
+
+    let preis: number = 0.0;
+    let i: number = 0;
+    while(i <=this.suche.lego_set.shops[0].einzelteile.length){
+      preis = preis + (this.suche.lego_set.shops[1].einzelteile[i].preis 
+        * this.suche.lego_set.shops[0].einzelteile[i].anzahl)
+      i = i + 1;
+    }
+    return preis;
+    
   }
   
-
+  /*
+  Preistabelle Günstigste
+  Größte Vollständigkeit der Teile
+  nach links => bestes Angebot
+  Rating System größte Vollständigkeit und Gesamtpreis
+  Günstigstes Einzelteil bei Shop xy 
+  Versandkosten der Shops ab gewissem Preis
+  Aufklappen der Einzelteile
+  Einzelteile die Verfügbar sind und einzelteile die nicht verfügbar sind trennen in einem
+  Accordion 
+  Im Accordion der verfügbaren Teile Button zum bestellen => in den Warenkorb legen
+  */
 
 
 
